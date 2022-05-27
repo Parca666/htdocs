@@ -1,25 +1,39 @@
 <?php
-	if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
-		$uri = 'https://';
-	} else {
-		$uri = 'http://';
+
+	$accion = " ";
+	if(isset($_GET['dest'])) {$accion=$_GET['dest'];}
+
+	session_start();
+
+	if(isset($_SESSION['usuario']))
+	{
+		switch ($accion)
+		{
+			case 'IniP':
+				include __DIR__.'/recursoLogin.php';
+				break;
+			default:
+				include __DIR__.'/recursoMenuJuego.php';
+				break;
+		}
 	}
-	$dest = " ";
-	if(isset($_GET['dest'])) {$accio=$_GET['dest'];}
+	else
+	{
+		switch ($accion) {
+			case 'registro':
+				include __DIR__.'/recursoRegistro.php';
+				break;
+			case 'login':
+				include __DIR__.'/recursoLogin.php';
+				break;
+			default:
+				include __DIR__.'/recursoPortada.php';
+				break;
+		}
+	}
 
-switch ($accio) {
-	case 'registro':
-		include __DIR__.'/recursoRegistro.php';
-		break;
-	case 'login':
-		include __DIR__.'/recursoLogin.php';
-		break;
-	default:
-		include __DIR__.'/recursoPortada.php';
-		break;
-}
 
 
-exit;
-?>
+	exit;
+
 

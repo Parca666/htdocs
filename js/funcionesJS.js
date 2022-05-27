@@ -1,4 +1,22 @@
 $(document).ready(function() {
+    $(".botonISesion").click(function () {
+
+        $(document).load('index.php?dest=login');
+
+    });
+});
+
+function ISesion()
+{
+    $(document).load('index.php?dest=login')
+}
+
+
+
+
+
+
+$(document).ready(function() {
     //Ajax de categorias
     $(".divCategoria").click(function () {
         $(".divCategoria").css({"display": "none"});
