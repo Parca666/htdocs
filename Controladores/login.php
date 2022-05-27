@@ -8,23 +8,30 @@
         require './Modelos/connectaBD.php';
         $con = connectaBD();
 
-        $correo = $_POST["Correo"];
+        $email = $_POST["Email"];
         $contrasena = $_POST["Contraseña"];
         $contrasenaHash =0;
         require_once './Modelos/login.php';
-        $numCorreos = comprobarCorreo($con, $correo);
+        $numCorreos = comprobarCorreo($con, $email);
+
         //Si existe el correo
         if ($numCorreos != null){
-            $contrasenaBD = getContraseña($con, $correo);
+
+            $contrasenaBD = getContraseña($con, $email);
             $hash = $contrasenaBD[0][0];
+
+            //print_r($contrasenaBD);
+            print_r( password_verify ($contrasena , $hash));
             $contrasenaHash =  password_verify ($contrasena , $hash);
+
+            print_r($contrasenaHash);
         }
 
         if($contrasenaHash){
-            $idUsuario = getId($con, $correo);
+
+            $idUsuario = getId($con, $email);
             $_SESSION['usuario'] = $idUsuario[0]['idUsuario'];
-            $_SESSION['carrito']= null;
-            header('Refresh: 1; URL=index.php');
+            header('Refresh: 1; URL=index.php?dest=MJuego');
         }
         else
         {

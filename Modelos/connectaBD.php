@@ -1,10 +1,17 @@
 <?php
 function connectaBD()
 {
-    $con = new PDO(
-        'mysql:host=127.0.0.1;dbname=tdiwm12;port=3306;charset=utf8mb4',
-        'tdiw-m12',
-        'MQo9kRJE'
-    );
-    return($con);
+    $host = 'localhost';
+    $dbname = 'leyendas musica';
+    $username = 'leyendasmusica';
+    $password = 'TFmPyYFKJcvh3fxa';
+
+    try {
+        $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        //echo "Connected to $dbname at $host successfully.";
+    } catch (PDOException $pe) {
+        die("Could not connect to the database $dbname :" . $pe->getMessage());
+    }
+
+    return($conn);
 }
