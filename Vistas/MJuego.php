@@ -1,9 +1,9 @@
 <?php function PGuardadasVista($pGuardadas)
 {
-    $id = 0;
+    $id = 4;
     //print_r($pGuardadas);
 
-    while ($id < 5) : ?>
+    while ($id >= 0) : ?>
         <div class="PGuardada">
             <?php if($pGuardadas[$id] == NULL)
                 { ?>
@@ -20,6 +20,6 @@
 
         </div>
 <?php
-        $id = $id +1;
+        $id = $id -1;
     endwhile;
 }?>
