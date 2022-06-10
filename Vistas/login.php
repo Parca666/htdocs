@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <body>
+    <body class="log">
         <section id="formulario">
             <form action="index.php?dest=login" target="_self" method="post">
                 <p> Email </p> <input type="email" maxlength="25" name="Email" required><br />
