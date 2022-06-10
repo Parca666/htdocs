@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Registro en LM</title>
     <link rel="stylesheet" type="text/css" href="css/header.css" />
-    <link rel="stylesheet" type="text/css" href="css/usuario.css" />
+    <link rel="stylesheet" type="text/css" href="css/log.css" />
     <link rel="stylesheet" type="text/css" href="css/footer.css" />
     <script type="text/javascript" src="Lib/jquery.js"> </script>
     <script type="text/javascript" src="js/funcionesJS.js"> </script>

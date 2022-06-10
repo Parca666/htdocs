@@ -1,0 +1,24 @@
+.log
+{
+    background-image: url("/img/background/bgPM.png");
+    margin-top: 0px;
+
+    color:  #FF3E3E;
+    text-decoration: none;
+    text-align: center;
+    font-family: cursive;
+}
+
+input
+{
+    color: #FF3E3E;
+    text-decoration: none;
+    text-align: center;
+    font-family: cursive;
+}
+
+input[type="reset"], input[type="submit"]
+{
+    margin-bottom: 20%;
+}
+

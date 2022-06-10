@@ -1,0 +1,34 @@
+footer
+{
+    display: grid;
+    width: 100%;
+    height: 250px;
+    background: black;
+    color:  #FF3E3E;
+}
+
+.header > #headerName
+{
+    grid-area: name;
+
+    color:  #FF3E3E;
+    font-size: 120%;
+    text-decoration: none;
+    text-align: center;
+    font-family: cursive;
+}
+
+.header > #headerImg
+{
+    grid-area: img;
+    margin-top: 15%;
+}
+
+.header > #headerImg img
+{
+    width: 150%;
+}
+
+img.imagenCat {
+    width: 5%;
+}

@@ -9,5 +9,12 @@
         Instrucciones
     </button>
 
+    <div class="musicAnimation" id="music1">
+        <img src="/img/animation/music1.png">
+    </div>
+    <div class="musicAnimation" id="music2">
+        <img src="/img/animation/music1.png">
+    </div>
+
 </body>
 </html>

@@ -1,0 +1,108 @@
+.container
+{
+    display: grid;
+    justify-items: center;
+    margin-top: 20%;
+    justify-content: space-evenly;
+}
+
+body
+{
+    background-image: url("/img/logo.png");
+    background-color: black;
+    background-repeat: no-repeat;
+}
+
+.container a
+{
+    text-decoration: none;
+    background-color: lightgray;
+    color:  #FF3E3E;
+    padding-block: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+    margin-top: 5%;
+    margin-block-end: 5%;
+    font-size: 200%;
+    text-align: center;
+    border-radius: 15%;
+    font-family: cursive;
+    transition:all .3s ease-in-out;
+}
+
+
+.container a:hover
+{
+    background-color: darkgrey;
+    color: #FFAFAF;
+}
+
+#music1 img
+{
+    width: 25%;
+    color: #FFAFAF;
+}
+
+#music2 img
+{
+    width: 15%;
+    color: #FFAFAF;
+}
+
+#music1, #music2
+{
+    display:block;
+}
+
+.musicAnimation
+{
+    position: absolute;
+    right:0;
+}
+
+#music1
+{
+    top:50px;
+    animation-delay: -2s!important;
+    transform:scale(0.9);
+}
+
+#music2
+{
+    top:100px;
+    animation-delay: -4s!important;
+    transform:scale(0.9);
+}
+
+@keyframes move
+{
+    0%{top:10%; right:0%;}
+    20%{top:0%; right:10%; transform:rotatez(20deg);}
+    40%{top:20%; right:20%; transform:rotatez(40deg);}
+    60%{top:30%; right:30%; transform:rotatez(60deg);}
+    80%{top:20%; right:10%; transform:rotatez(80deg);}
+    100%{top:50%; right:15%;}
+}
+
+@keyframes move2
+{
+    0%{top:10%; right:0%;}
+    50%{top:0%; right:10%; transform:rotatez(270deg);}
+    100%{top:50%; right:15%;}
+}
+
+#music1
+{
+    width: 25%;
+    transition:0.3s  cubic-bezier(0,.43,1,0);
+    animation: move 8s infinite alternate;
+
+}
+
+#music2
+{
+    width: 25%;
+    transition:0.3s  cubic-bezier(0,.43,1,0);
+    animation: move 8s infinite alternate;
+}

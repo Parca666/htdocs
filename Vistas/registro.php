@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-    <body>
+    <body class="log">
         <section id=formulario>
             <form action="../index.php?dest=registro" target="_self" method="post">
                 <p>Nick</p> <input type="text" maxlength="20" name="Nick" required ><br />
