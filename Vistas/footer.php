@@ -3,7 +3,7 @@
         <div>
             <p>  <span> CONTACTA</span>  </p>
             <hr />
-            <p> <img class="imagenCat" src= "/img/correo.png" />  antoniogamiz98@gmail.com </p>
+            <p> <img class="imagenCat" src= "/img/logo/gmailLogo.jpg" />  antoniogamiz98@gmail.com </p>
         </div>
     </section>
 
