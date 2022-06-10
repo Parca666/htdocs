@@ -1,4 +1,4 @@
- <footer>
+
     <section id="contacta">
         <div>
             <p>  <span> CONTACTA</span>  </p>
@@ -11,4 +11,3 @@
     <section id="copyright">
         <p> © 2021-2022 Copyright  </p>
     </section>
- </footer>
