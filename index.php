@@ -12,6 +12,9 @@
 	{
 		switch ($accion)
 		{
+            case 'juego':
+                include __DIR__.'/recursoJuego.php';
+                break;
 			case 'IniP':
 				include __DIR__.'/recursoLogin.php';
 				break;
