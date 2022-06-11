@@ -1,9 +1,12 @@
 <?php
+    session_start();
 
 	$accion = " ";
 	if(isset($_GET['dest'])) {$accion=$_GET['dest'];}
 
-	session_start();
+    if(isset($_GET['id'])) {$_SESSION['id']=$_GET['id'];}
+
+
 
 	if(isset($_SESSION['usuario']))
 	{
@@ -12,6 +15,9 @@
 			case 'IniP':
 				include __DIR__.'/recursoLogin.php';
 				break;
+            case 'nJuego':
+                include __DIR__.'/recursoNJuego.php';
+                break;
 			default:
 				include __DIR__.'/recursoMenuJuego.php';
 				break;
