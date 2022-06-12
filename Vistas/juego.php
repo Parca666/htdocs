@@ -3,6 +3,10 @@
 
 <div class="tablero">
     <img src="/img/juego/tablero<?=$_SESSION["pGuardada"]['idTablero']?>.png" alt="Tablero">
+    <div class="jugador" id="j1"> <p>J1 </p></div>
+    <div class="jugador" id="j2" style="display: <?= isset($_SESSION["jugadores"][1])? "block":"none"?>"> <p>J2</p> </div>
+    <div class="jugador" id="j3" style="display: <?= isset($_SESSION["jugadores"][2])? "block":"none"?>"> <p>J3</p> </div>
+    <div class="jugador" id="j4" style="display: <?= isset($_SESSION["jugadores"][3])? "block":"none"?>"> <p>J4</p> </div>
 </div>
 
 <div class="containerStats">
@@ -10,15 +14,15 @@
     <p> <?= $jugador['nombreBanda'] ?> </p>
 
     <div class="stats" >
-        <p class="fama"> Fama: <?= $jugador['fama'] ?> </p>
+        <div class="fama"> Fama: <?= $jugador['fama'] ?> </div>
 
-        <p class="repercusion"> Repercusión: <?= $jugador['repercusion'] ?> </p>
+        <div class="ingresos"> Ingresos: <?= $jugador['ingresos'] ?> </div>
 
-        <p class="ingresos"> Ingresos: <?= $jugador['ingresos'] ?> </p>
+        <div class="repercusion"> Repercusión: <?= $jugador['repercusion'] ?> </div>
 
-        <p class="coste"> Costes: <?= $jugador['costes'] ?> </p>
+        <div class="coste"> Costes: <?= $jugador['costes'] ?> </div>
 
-        <p class="dinero"> Mucoins: <?= $jugador['dinero'] ?> </p>
+        <div class="dinero"> Mucoins: <?= $jugador['dinero'] ?> </div>
     </div>
 
 </div>
