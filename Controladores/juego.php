@@ -21,6 +21,7 @@
 
         $_SESSION["jugadores"] = array($jugador1, $jugador2, $jugador3, $jugador4);
 
+
         //print_r(count(array_filter($_SESSION["jugadores"], function ($x){return !empty($x);}), $mode = COUNT_NORMAL));
 
         require_once  './Vistas/juego.php';
