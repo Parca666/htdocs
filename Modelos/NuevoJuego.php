@@ -49,6 +49,7 @@ function buscarJugador($con, $idCasilla, $nombreBanda, $fama, $repercusion, $ing
 
 function crearPartida($con, array $idJugadores)
 {
+    $turnoJugador = 1;
     $idTablero = 1;
 
     ////print_r($idJugadores);
@@ -61,23 +62,23 @@ function crearPartida($con, array $idJugadores)
     {
         if(isset($idJ4))
         {
-            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`) 
-                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', '.$idJ3.', '.$idJ4.')';
+            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`, `turnoJugador`) 
+                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', '.$idJ3.', '.$idJ4.', '.$turnoJugador.')';
         }
         elseif (isset($idJ3))
         {
-            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`) 
-                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', '.$idJ3.', NULL)';
+            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`, `turnoJugador`) 
+                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', '.$idJ3.', NULL, '.$turnoJugador.')';
         }
         elseif (isset($idJ2))
         {
-            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`) 
-                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', NULL, NULL)';
+            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`, `turnoJugador`) 
+                VALUES (NULL, '.$idTablero.', '.$idJ1.', '.$idJ2.', NULL, NULL, '.$turnoJugador.')';
         }
         else
         {
-            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`) 
-                VALUES (NULL, '.$idTablero.', '.$idJ1.', NULL, NULL, NULL)';
+            $sql = 'INSERT INTO `partidaguardada` (`idPGuardada`, `idTablero`, `idJugador1`, `idJugador2`, `idJugador3`, `idJugador4`, `turnoJugador`) 
+                VALUES (NULL, '.$idTablero.', '.$idJ1.', NULL, NULL, NULL, '.$turnoJugador.')';
         }
 
         $stmt = $con->prepare($sql);
