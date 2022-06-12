@@ -9,7 +9,7 @@
 
         //print_r($con);
 
-        //coger variables
+        //Coger variables
         $nick = $_POST["Nick"];
         $email = $_POST["Email"];
         $contrasena = $_POST["Contraseña"];
