@@ -13,6 +13,7 @@
                <?php }
                 else
                 {?>
+
                     <button class="cJuego" id="<?= $id + 1 ?>" onclick=""> Cargar Partida </button>
                     <button class="eJuego" id="<?= $id + 1  ?>" onclick=""> X </button>
 

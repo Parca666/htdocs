@@ -14,21 +14,26 @@ body {background-image: url("/img/background/bgPM.png");}
     flex-direction: column-reverse;
 }
 
-input {
+input, .cJuego, .eJuego {
     color: #FF3E3E;
     text-decoration: none;
     text-align: center;
     font-family: cursive;
     font-size: 120%;
-    width: 120%;
     border-width: thin;
     transition: all .3s ease-in-out;
 
 }
 
-input:hover {
+input{
+    width: 120%;
+}
+
+input:hover, .cJuego:hover, .eJuego:hover {
     background-color: darkgray;
     color: #FFAFAF;
 }
+
+
 
 input.nuevaPartida {}
