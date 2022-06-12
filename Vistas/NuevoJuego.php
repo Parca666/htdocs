@@ -8,27 +8,27 @@
             </div>
 
             <div class="jugador1">
-                <img src="/img/bandas/foto1.png" width="500" height="500">
-                <p>Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda1" required ><br />
-                <p><input type="checkbox" name="1" required> Añadir banda.</p><br />
+                <img class="imgF" src="/img/bandas/foto1.png" width="500" height="500">
+                <p class="nbT">Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda1" required ><br />
+                <input type="checkbox" name="1" required>
             </div>
 
             <div class="Jugador2">
-                <img src="/img/bandas/foto2.png" width="500" height="500">
-                <p>Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda2" required ><br />
-                <p><input type="checkbox" name="2" required> Añadir banda.</p><br />
+                <img class="imgF" src="/img/bandas/foto2.png" width="500" height="500">
+                <p class="nbT">Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda2" required ><br />
+                <input type="checkbox" name="2" required>
             </div>
 
-            <div class="Jugagor3">
-                <img src="/img/bandas/foto3.png" width="500" height="500">
-                <p>Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda3" ><br />
-                <p><input type="checkbox" name="3" > Añadir banda.</p><br />
+            <div class="Jugador3">
+                <img class="imgF" src="/img/bandas/foto3.png" width="500" height="500">
+                <p class="nbT">Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda3" ><br />
+                <input type="checkbox" name="3" >
             </div>
 
             <div class="Jugador4">
-                <img src="/img/bandas/foto4.png" width="500" height="500">
-                <p>Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda4" ><br />
-                <p><input type="checkbox" name="4" > Añadir banda.</p><br />
+                <img class="imgF" src="/img/bandas/foto4.png" width="500" height="500">
+                <p class="nbT">Nombre de la banda</p> <input type="text" maxlength="20" name="nombreBanda4" ><br />
+                <input type="checkbox" name="4" >
             </div>
 
             <input class="bCPartida" type="submit" value="CREAR PARTIDA"><br />
