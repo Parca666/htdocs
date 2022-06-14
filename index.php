@@ -28,6 +28,7 @@
                 include __DIR__.'/recursoEliminarPartida.php';
                 //include __DIR__.'/recursoMenuJuego.php';
                 break;
+                
 			default:
 				include __DIR__.'/recursoMenuJuego.php';
 				break;

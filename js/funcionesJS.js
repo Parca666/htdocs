@@ -24,6 +24,33 @@ function getNumRand(min, max)
 }
 
 function tirarDados(nDados)
+{
+    let dado1; let dado2 = 0;
+    dado1 = getNumRand(1,6);
+    if(nDados === 2){  dado2= getNumRand(1,6);}
+    let suma = dado1 + dado2;
+
+    document.getElementById("btTirarDados").style.display = 'none';
+    document.getElementById("divDados").style.display= 'block';
+
+    $({deg: 0}).animate({deg:360}), {
+        duration: 600,
+        step: function (now) {
+            var scale = (1 * now / 360)
+
+            document.getElementById('dado1').style.transform = 'rotate(' + now + 'deg) scale(' + scale + ')';
+
+            if(nDados === 2){
+                document.getElementById('dado2').style.transform = 'rotate(' + now + 'deg) scale(' + scale + ')';
+            }
+        }
+    }
+
+    document.getElementById("dado1").src="./img/juego/dados/"+dado1+".svg";
+    if(nDados === 2){document.getElementById("dado2").src="./img/juego/dados/"+dado2+".svg";}
+
+
+}
 
 /*$(document).ready(function (){
     $(".cJuego").click(function (){

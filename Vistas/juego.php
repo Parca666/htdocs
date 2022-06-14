@@ -28,13 +28,18 @@
 </div>
 
 <div class="containerButtoms">
-    <button> Tirara dados </button>
+    <button id="btTirarDados" onclick="tirarDados(<?=$_SESSION["pGuardada"]['idTablero']?>)"> Tirara dados </button>
     <button> Hacer Intercambio </button>
     <img src="/img/logo/logoInventario.png">
 </div>
 
 <div class="escenario">
     <img src="/img/juego/escenario.png" alt="Escenario">
+</div>
+
+<div class="dados" id="divDados" style="display: none">
+    <img id="dado1" src="/img/juego/dados/rand.svg">
+    <img id="dado2" src="<?php if($_SESSION["pGuardada"]['idTablero'] == 2){ echo("/img/juego/dados/rand.svg");}?>">
 </div>
 
 
