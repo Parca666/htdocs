@@ -2,8 +2,10 @@
 {
     $id = 4;
     //print_r($pGuardadas);
+    ?>
 
-    while ($id >= 0) : ?>
+
+    <?php while ($id >= 0) : ?>
         <div class="PGuardada">
             <?php if($pGuardadas[$id] == NULL)
                 { ?>
@@ -14,8 +16,8 @@
                 else
                 {?>
 
-                    <button class="cJuego" id="<?= $id + 1 ?>" onclick=""> Cargar Partida </button>
-                    <button class="eJuego" id="<?= $id + 1  ?>" onclick=""> X </button>
+                    <button class="cJuego" id="<?= $id + 1 ?>" onclick="cargarPartida(<?= $id + 1 ?>)" > Cargar Partida </button>
+                    <button class="eJuego" id="<?= $id + 1  ?>" onclick="eliminarPartida(<?= $id + 1  ?>)"> X </button>
 
                 <?php } ?>
 
