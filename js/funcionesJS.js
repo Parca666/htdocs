@@ -1,88 +1,36 @@
-$(document).ready(function() {
-    $(".botonISesion").click(function () {
 
-        $(document).load('index.php?dest=login');
 
+$(document).ready(function (){
+    $(".Cjuego").click(function (){
+        $.ajax({url: "index.php?dest=cJuego", success: function(result){
+                $(".PGuardada").html(result);
+            }});
     });
 });
 
-function ISesion()
-{
-    $(document).load('index.php?dest=login')
+function cargarPartida(id){
+    id = id -1;
+    $('.container').load('index.php?dest=cJuego&id=' + id);
 }
 
-
-
-
-
-
-$(document).ready(function() {
-    //Ajax de categorias
-    $(".divCategoria").click(function () {
-        $(".divCategoria").css({"display": "none"});
-        $("#bodyCategorias").load('index.php?accio=productosCategoria&id=' + this.id);
-    });
-});
-
-$(document).ready(function() {
-    //Ajax de para eliminar producto
-    $(".cruzCarProd").click(function () {
-        $("body").load('index.php?accio=carritoEliminar&id=' + this.id);
-    });
-});
-
-function ClickBuscar()
-{
-    $("#buscador").css({"display":"block"});
+function  eliminarPartida(id){
+    id = id -1;
+    $('.container').load('index.php?dest=eJuego&id='+ id);
 }
 
-$(document).ready(function() {
-    // Muestra y oculta los menús
-    $('ul li:has(ul)').hover(
-        function(e)
-        {
-            $(this).children('ul').slideDown();
-            $(this).find('ul').css({display: "block"});
-        },
-        function(e)
-        {
-            $(this).find('ul').css({display: "none"});
-        }
-    );
-});
-
-$(document).ready(function() {
-    //Ir a categorias
-    $(".botonCarrito1").click(function () {
-
-        $(document).load('index.php?accio=categorias');
-
-    });
-});
-
-$(document).ready(function() {
-    //Confirmar compra con ajax
-    $("#confirmarCompra").click(function () {
-
-        $('.container').load('index.php?accio=confirmarCompra&id=-1');
-
-    });
-});
-
-
-function PerfilClick()
+function getNumRand(min, max)
 {
-    $("#perfil").css({"display":"block"});
+    return Math.round(Math.random()*(max-min)+parseInt(min));
 }
 
-function loadDescripcion(id)
-{
-    var x = document.getElementById(id);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+function tirarDados(nDados)
 
-    //$("#cierraIframe").css({"display":"block"});
-}
+/*$(document).ready(function (){
+    $(".cJuego").click(function (){
+        $.ajax(ajax({url: 'index.php?dest=cPartida$id=' + this.id, success: function (juego){
+            //$(document).html(juego);
+                alert("hola");
+            }}));
+    });
+});
+*/

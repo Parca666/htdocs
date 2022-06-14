@@ -21,6 +21,13 @@
             case 'nJuego':
                 include __DIR__.'/recursoNJuego.php';
                 break;
+            case 'cJuego':
+                include __DIR__.'/recursoCargarPartida.php';
+                break;
+            case 'eJuego':
+                include __DIR__.'/recursoEliminarPartida.php';
+                //include __DIR__.'/recursoMenuJuego.php';
+                break;
 			default:
 				include __DIR__.'/recursoMenuJuego.php';
 				break;

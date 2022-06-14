@@ -13,6 +13,62 @@ function getPartidaGuardada($con, $idPGuardada)
 
 }
 
+function getPartidaGuardadaByJugador($con, $idUsuario)
+{
+    $sql =" SELECT `idPartidaGuardada1`, `idPartidaGuardada2`, `idPartidaGuardada3`, `idPartidaGuardada4`, `idPartidaGuardada5` FROM `usuario`
+            WHERE `idUsuario` = '$idUsuario'";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $pGuardada = $stmt->fetchAll();
+    return ($pGuardada);
+}
+
+function eliminarPartida($con, $idPGuardada)
+{
+    $sql = " DELETE FROM `partidaGuardada` WHERE `idPGuardada` = '$idPGuardada'";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+}
+
+function actUsuario($con, $idUsuario)
+{
+    switch ($_SESSION['id'])
+    {
+        case 0:
+            $sql = 'UPDATE `usuario` 
+                SET idPartidaGuardada1= NULL
+                WHERE `idUsuario` = "'.$idUsuario.'" ';
+            break;
+        case 1:
+            $sql = 'UPDATE `usuario` 
+                SET idPartidaGuardada2= NULL
+                WHERE `idUsuario` = "'.$idUsuario.'" ';
+            break;
+        case 2:
+            $sql = 'UPDATE `usuario` 
+                SET idPartidaGuardada3= NULL
+                WHERE `idUsuario` = "'.$idUsuario.'" ';
+            break;
+        case 3:
+            $sql = 'UPDATE `usuario` 
+                SET idPartidaGuardada4= NULL
+                WHERE `idUsuario` = "'.$idUsuario.'" ';
+            break;
+        default:
+            $sql = 'UPDATE `usuario` 
+                SET idPartidaGuardada5= NULL
+                WHERE `idUsuario` = "'.$idUsuario.'" ';
+            break;
+    }
+    $stmt = $con->prepare($sql);
+
+    $stmt->execute();
+
+}
+
 function getJugador($con, $idJugador)
 {
     $sql = " SELECT * FROM `jugador` 
