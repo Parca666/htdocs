@@ -1,13 +1,7 @@
 <!-- <?php print_r($_SESSION["jugadores"])?></p>
 <p><?php print_r($_SESSION["pGuardada"])?></p>  -->
 
-<div class="tablero">
-    <img src="/img/juego/tablero<?=$_SESSION["pGuardada"]['idTablero']?>.png" alt="Tablero">
-    <div class="jugador" id="j1"> <p>J1 </p></div>
-    <div class="jugador" id="j2" style="display: <?= isset($_SESSION["jugadores"][1])? "block":"none"?>"> <p>J2</p> </div>
-    <div class="jugador" id="j3" style="display: <?= isset($_SESSION["jugadores"][2])? "block":"none"?>"> <p>J3</p> </div>
-    <div class="jugador" id="j4" style="display: <?= isset($_SESSION["jugadores"][3])? "block":"none"?>"> <p>J4</p> </div>
-</div>
+<iframe id="tableroFrame" class="tablero" title="Tablero" width="900" height="900" src="index.php?dest=EiGame&tipo=tablero"></iframe>
 
 <div class="containerStats">
     <?php $jugador = $_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0] ?>
@@ -28,14 +22,12 @@
 </div>
 
 <div class="containerButtoms">
-    <button id="btTirarDados" onclick="tirarDados(<?=$_SESSION["pGuardada"]['idTablero']?>)"> Tirara dados </button>
+    <button id="btTirarDados" onclick="tirarDados(<?=$_SESSION["pGuardada"]['idTablero']?>, <?=$_SESSION["pGuardada"]['turnoJugador']?>, 1)"> Tirara dados </button>
     <button> Hacer Intercambio </button>
     <img src="/img/logo/logoInventario.png">
 </div>
 
-<div class="escenario">
-    <img src="/img/juego/escenario.png" alt="Escenario">
-</div>
+<iframe class="escenario" title="Escenario" width="700" height="550" src="index.php?dest=EiGame&tipo=escenario"></iframe>
 
 <div class="dados" id="divDados" style="display: none">
     <img id="dado1" src="/img/juego/dados/rand.svg">

@@ -23,17 +23,17 @@ function getNumRand(min, max)
     return Math.round(Math.random()*(max-min)+parseInt(min));
 }
 
-function tirarDados(nDados)
+function tirarDados(nDados, nTurno, pos)
 {
     let dado1; let dado2 = 0;
     dado1 = getNumRand(1,6);
     if(nDados === 2){  dado2= getNumRand(1,6);}
     let suma = dado1 + dado2;
 
-    document.getElementById("btTirarDados").style.display = 'none';
+    //document.getElementById("btTirarDados").style.display = 'none';
     document.getElementById("divDados").style.display= 'block';
 
-    $({deg: 0}).animate({deg:360}), {
+    $({deg: 0}).animate({deg:360}, {
         duration: 600,
         step: function (now) {
             var scale = (1 * now / 360)
@@ -44,11 +44,13 @@ function tirarDados(nDados)
                 document.getElementById('dado2').style.transform = 'rotate(' + now + 'deg) scale(' + scale + ')';
             }
         }
-    }
+    });
 
     document.getElementById("dado1").src="./img/juego/dados/"+dado1+".svg";
     if(nDados === 2){document.getElementById("dado2").src="./img/juego/dados/"+dado2+".svg";}
+    //alert(suma);
 
+    document.getElementById("tableroFrame").src='index.php?dest=EiGame&tipo=tablero&nDado='+suma;
 
 }
 

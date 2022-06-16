@@ -2,11 +2,12 @@ body {background-image: url("/img/background/bgPM.png");}
 
 .juego {
     display: grid;
-    grid-template-areas: "tablero tablero tablero" "stats stats escenario " "botones botones escenario ";
+    grid-template-areas: "tablero tablero escenario " "tablero tablero stats " ". botones .  ";
 }
 
 .tablero {
     grid-area: tablero;
+    border: none ;
 }
 
 .tablero img {
@@ -19,13 +20,14 @@ body {background-image: url("/img/background/bgPM.png");}
 .containerStats {
 
 
-    background-color: powderblue;
+    background-color: dimgrey;
     border: solid #FFAFAF;
     border-radius: 30%;
     text-align: left;
     font-family: cursive;
     color: #FF3E3E;
     font-size: 110%;
+    margin-bottom: 20%;
 
     grid-area: stats;
 }
@@ -105,6 +107,8 @@ body {background-image: url("/img/background/bgPM.png");}
 
 .escenario {
     grid-area: escenario;
+    border: none;
+    padding-top: 5%;
 }
 
 .escenario img {
@@ -113,38 +117,40 @@ body {background-image: url("/img/background/bgPM.png");}
 }
 
 .jugador > p {
+    display: flex;
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 4%;
+    height: 3%;
     text-align: center;;
     z-index: 1;
     border: solid 3px black;
     border-radius: 50%;
     font-family: cursive;
+    font-size: 100%;
     color: black;
 }
 
 #j1 > p{
     background-color: yellow;
-    left: 90%;
-    top:120%;
+    /*left: 77%;
+    top:84%;*/
 }
 
 #j2 > p{
     background-color: aqua;
-    left: 90%;
-    top:110%;
+    /*left: 81%;
+    top:81%;*/
 }
 
 #j3 > p{
     background-color: #FF3E3E;
-    left: 90%;
-    top:130%;
+    /*left: 85%;
+    top:78%;*/
 }
 
 #j4 > p {
     background-color: chartreuse;
-    left: 90%;
-    top:140%;
+    /*left: 89%;
+    top:75%;*/
 }
 
