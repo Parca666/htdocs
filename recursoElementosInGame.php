@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Leyendas de la música</title>
-    <link rel="stylesheet" type="text/css" href="css/juego.css" />
+
     <script type="text/javascript" src="lib/jquery.js"> </script>
+    <link rel="stylesheet" type="text/css" href="css/eIgame.css" />
     <script type="text/javascript" src="js/funcionesJS.js"> </script>
 </head>
 

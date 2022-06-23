@@ -80,3 +80,60 @@ function getJugador($con, $idJugador)
     $jugador = $stmt->fetchAll();
     return ($jugador);
 }
+function getCasillasFortuna($con)
+{
+    $sql = "SELECT * FROM `casillafortuna`";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $casillas = $stmt->fetchAll();
+    return ($casillas);
+}
+
+function getCasillaFama($con)
+{
+    $sql = "SELECT * FROM `casillafama`";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $casillas = $stmt->fetchAll();
+    return ($casillas);
+
+}
+
+function getCasillaEleccion($con)
+{
+    $sql = "SELECT * FROM `casillaeleccion`";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $casillas = $stmt->fetchAll();
+    return ($casillas);
+
+}
+
+function getCasillaSuerte($con)
+{
+    $sql = "SELECT * FROM `casillasuerte`";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $casillas = $stmt->fetchAll();
+    return ($casillas);
+
+}
+
+function getCasillaEsquina($con)
+{
+    $sql = "SELECT * FROM `casillaesquina`";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $casillas = $stmt->fetchAll();
+    return ($casillas);
+}

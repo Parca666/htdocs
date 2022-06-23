@@ -52,6 +52,28 @@ function tirarDados(nDados, nTurno, pos)
 
     document.getElementById("tableroFrame").src='index.php?dest=EiGame&tipo=tablero&nDado='+suma;
 
+    setTimeout(function (){
+        //alert("casilla");
+        document.getElementById("cartaFrame").src='index.php?dest=EiGame&tipo=carta';
+        document.getElementById("cartaFrame").style.display = 'block';
+        document.getElementById("cPopUp").style.display = 'block';
+
+    }, 1000);
+
+
+}
+
+function actStats ()
+{
+    alert("hola");
+    document.getElementById("cartaFrame").style.display = 'none';
+    document.getElementById("cPopUp").style.display = 'none';
+    document.getElementById("divDados").style.display = 'none';
+
+
+    $('.container').load('index.php?dest=actStats');
+    document.getElementById("bFinalizarTurno").style.display = 'block';
+
 }
 
 /*$(document).ready(function (){
@@ -63,3 +85,5 @@ function tirarDados(nDados, nTurno, pos)
     });
 });
 */
+
+

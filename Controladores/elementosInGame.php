@@ -92,3 +92,47 @@ elseif($_GET['tipo'] == "escenario")
 {
     include_once './Vistas/escenario.php';
 }
+
+elseif ($_GET['tipo'] == "carta")
+{
+    include_once './Modelos/connectaBD.php';
+    $con = connectaBD();
+
+    include_once './Modelos/juego.php';
+    $casilla = "";
+    $posJugador = $_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0]['idCasilla'];
+
+    include_once './Vistas/carta.php';
+
+
+    switch (($posJugador- 1)%5)
+    {
+        case 0:
+            $casilla =  getCasillaEsquina($con);
+            //print_r($casilla);
+            break;
+        case 1:
+            $casilla = getCasillasFortuna($con);
+            //print_r($casilla);
+            break;
+        case 2:
+            $casilla = getCasillaSuerte($con);
+            break;
+        case 3:
+            $casilla = getCasillaEleccion($con);
+            print_r($casilla);
+            break;
+        case 4:
+            $casilla = getCasillaFama($con);
+            print_r($casilla);
+            break;
+
+
+    }
+
+    $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
+    templateCasilla($_SESSION["casilla"], ($posJugador- 1)%5);
+
+
+
+}

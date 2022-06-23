@@ -2,19 +2,13 @@ body {background-image: url("/img/background/bgPM.png");}
 
 .juego {
     display: grid;
+    position: relative;
     grid-template-areas: "tablero tablero escenario " "tablero tablero stats " ". botones .  ";
 }
 
 .tablero {
     grid-area: tablero;
     border: none ;
-}
-
-.tablero img {
-    width: 90%;
-    height: 90%;
-    margin-top: 5%;
-    margin-left: 5%;
 }
 
 .containerStats {
@@ -96,6 +90,10 @@ body {background-image: url("/img/background/bgPM.png");}
     border-radius: 20%;
 }
 
+#bFinalizarTurno {
+    display: none;
+}
+
 .containerButtoms img {
     width: 10%;
     background-color: white;
@@ -116,41 +114,34 @@ body {background-image: url("/img/background/bgPM.png");}
     padding-left: 5%;
 }
 
-.jugador > p {
-    display: flex;
+.carta{
     position: absolute;
-    width: 4%;
-    height: 3%;
-    text-align: center;;
+    border: none;
+    display: none;
+    top: 20%;
+    left: 25%;
     z-index: 1;
-    border: solid 3px black;
+}
+
+#cPopUp {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    font-size: 170%;
+    color: #FF3E3E;
     border-radius: 50%;
-    font-family: cursive;
-    font-size: 100%;
-    color: black;
+    border-color: #FFAFAF;
+    border-style: solid;
+    padding: 1%;
+    display: none;
+    z-index: 2;
+    /* background-color: white; */
 }
 
-#j1 > p{
-    background-color: yellow;
-    /*left: 77%;
-    top:84%;*/
-}
-
-#j2 > p{
-    background-color: aqua;
-    /*left: 81%;
-    top:81%;*/
-}
-
-#j3 > p{
+#cPopUp:hover{
     background-color: #FF3E3E;
-    /*left: 85%;
-    top:78%;*/
+    color: #FFAFAF;
+
 }
 
-#j4 > p {
-    background-color: chartreuse;
-    /*left: 89%;
-    top:75%;*/
-}
 

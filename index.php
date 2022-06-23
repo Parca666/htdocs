@@ -23,6 +23,9 @@
             case 'nJuego':
                 include __DIR__.'/recursoNJuego.php';
                 break;
+            case 'actStats':
+                include __DIR__. '/recursoActStats.php';
+                break;
             case 'cJuego':
                 include __DIR__.'/recursoCargarPartida.php';
                 break;

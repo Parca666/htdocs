@@ -25,14 +25,24 @@
     <button id="btTirarDados" onclick="tirarDados(<?=$_SESSION["pGuardada"]['idTablero']?>, <?=$_SESSION["pGuardada"]['turnoJugador']?>, 1)"> Tirara dados </button>
     <button> Hacer Intercambio </button>
     <img src="/img/logo/logoInventario.png">
+    <button id="bFinalizarTurno"> Finalizar Turno</button>
 </div>
+
 
 <iframe class="escenario" title="Escenario" width="700" height="550" src="index.php?dest=EiGame&tipo=escenario"></iframe>
 
+
+
+
 <div class="dados" id="divDados" style="display: none">
-    <img id="dado1" src="/img/juego/dados/rand.svg">
+    <img id="dado1" src="/img/juego/dados/rand.svg" >
     <img id="dado2" src="<?php if($_SESSION["pGuardada"]['idTablero'] == 2){ echo("/img/juego/dados/rand.svg");}?>">
 </div>
+<div>
+    <iframe id="cartaFrame" class="carta" title="Carta" width="900" height="500" src="index.php?dest=EiGame&tipo=carta&id=1"></iframe>
+    <button id="cPopUp" onclick="actStats()"> X</button>
+</div>
+
 
 
 
