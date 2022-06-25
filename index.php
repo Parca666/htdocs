@@ -6,7 +6,7 @@
 
     if(isset($_GET['id'])) {$_SESSION['id']=$_GET['id'];}
 
-    if(isset($_GET['nDado'])){$_SESSION['nDado']=$_GET['nDado'];}else{$_SESSION['nDado'] = 4;}
+    if(isset($_GET['nDado'])){$_SESSION['nDado']=$_GET['nDado'];}else{$_SESSION['nDado'] = 0;}
 
 
 
