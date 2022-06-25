@@ -30,7 +30,7 @@ function tirarDados(nDados, nTurno, pos)
     if(nDados === 2){  dado2= getNumRand(1,6);}
     let suma = dado1 + dado2;
 
-    //document.getElementById("btTirarDados").style.display = 'none';
+    document.getElementById("btTirarDados").style.display = 'none';
     document.getElementById("divDados").style.display= 'block';
 
     $({deg: 0}).animate({deg:360}, {
@@ -65,14 +65,23 @@ function tirarDados(nDados, nTurno, pos)
 
 function actStats ()
 {
-    alert("hola");
-    document.getElementById("cartaFrame").style.display = 'none';
-    document.getElementById("cPopUp").style.display = 'none';
-    document.getElementById("divDados").style.display = 'none';
+    $('.juego').load('index.php?dest=actStats');
 
+    setTimeout(function (){
+        //alert("casilla");
+        document.getElementById("cartaFrame").style.display = 'none';
+        document.getElementById("cPopUp").style.display = 'none';
+        document.getElementById("btTirarDados").style.display = 'none';
+        document.getElementById("divDados").style.display = 'none';
+        document.getElementById("bFinalizarTurno").style.display = 'block';
 
-    $('.container').load('index.php?dest=actStats');
-    document.getElementById("bFinalizarTurno").style.display = 'block';
+    }, 10);
+
+}
+
+function finalizarPartida ()
+{
+    $('.juego').load('index.php?dest=fPartida');
 
 }
 

@@ -137,3 +137,43 @@ function getCasillaEsquina($con)
     $casillas = $stmt->fetchAll();
     return ($casillas);
 }
+
+function actUsuarioStats($con, $idJugador, $idCasilla, $fama, $repercusion, $ingresos, $costes, $dinero)
+{
+    try {
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        $sql = 'UPDATE `jugador` 
+                    SET idCasilla= "' . $idCasilla . '", fama= "' . $fama . '", repercusion= "' . $repercusion . '", ingresos= "' . $ingresos . '", costes= "' . $costes . '", dinero= "' . $dinero . '" 
+                    WHERE `idJugador` = "' . $idJugador . '" ';
+
+        $stmt = $con->prepare($sql);
+
+        $stmt->execute();
+
+        //echo $stmt->rowCount() . " records UPDATED successfully";
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+}
+
+function getItembyID($con, $idItem)
+{
+    $sql = "SELECT * FROM `item` WHERE `idItem` = '$idItem'";
+
+    $stmt = $con->prepare($sql);
+    $stmt->execute();
+
+    $item = $stmt->fetchAll();
+    return ($item);
+}
+
+function actTurnoJugador($con, $idPartida, $turnoJugador)
+{
+    $sql = 'UPDATE `partidaguardada` SET turnoJugador="'.$turnoJugador.'"  WHERE `ìdPGuardada`= "'.$idPartida.'"';
+
+    $stmt = $con->prepare($sql);
+
+    $stmt->execute();
+}

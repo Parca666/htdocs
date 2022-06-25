@@ -40,6 +40,7 @@ if($_GET['tipo'] == "tablero")
     include_once './Vistas/tablero.php';
 
     //print_r($_SESSION["pGuardada"]['turnoJugador']);
+    //print_r($_SESSION["nDado"]);
 
     switch ($_SESSION["pGuardada"]['turnoJugador'])
     {
@@ -113,25 +114,30 @@ elseif ($_GET['tipo'] == "carta")
             break;
         case 1:
             $casilla = getCasillasFortuna($con);
+            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
+            templateCasilla($_SESSION["casilla"]);
+
             //print_r($casilla);
             break;
         case 2:
             $casilla = getCasillaSuerte($con);
+            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
+            templateCasilla($_SESSION["casilla"]);
             break;
         case 3:
             $casilla = getCasillaEleccion($con);
-            print_r($casilla);
+            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
+            eleccionCasilla($_SESSION["casilla"]);
             break;
         case 4:
             $casilla = getCasillaFama($con);
-            print_r($casilla);
+            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
+            templateCasilla($_SESSION["casilla"]);
             break;
 
 
     }
 
-    $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
-    templateCasilla($_SESSION["casilla"], ($posJugador- 1)%5);
 
 
 
