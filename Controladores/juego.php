@@ -5,10 +5,10 @@
     }
     else
     {
-        require_once './Modelos/connectaBD.php';
+        include_once './Modelos/connectaBD.php';
         $con = connectaBD();
 
-        require './Modelos/juego.php';
+        include_once './Modelos/juego.php';
         $pGuardada = getPartidaGuardada($con, $_SESSION["partida"]);
 
         $_SESSION["pGuardada"] = $pGuardada[0];
@@ -24,7 +24,7 @@
 
         //print_r(count(array_filter($_SESSION["jugadores"], function ($x){return !empty($x);}), $mode = COUNT_NORMAL));
 
-        require_once  './Vistas/juego.php';
+       include_once  './Vistas/juego.php';
 
 
     }
