@@ -25,7 +25,7 @@
     <button id="btTirarDados" onclick="tirarDados(<?=$_SESSION["pGuardada"]['idTablero']?>, <?=$_SESSION["pGuardada"]['turnoJugador']?>, 1)"> Tirara dados </button>
     <button> Hacer Intercambio </button>
     <img src="/img/logo/logoInventario.png">
-    <button id="bFinalizarTurno"> Finalizar Turno</button>
+    <button id="bFinalizarTurno" onclick="finalizarPartida()"> Finalizar Turno</button>
 </div>
 
 

@@ -177,3 +177,12 @@ function actTurnoJugador($con, $idPartida, $turnoJugador)
 
     $stmt->execute();
 }
+
+function actTablero($con, $idPartida)
+{
+    $sql = 'UPDATE `partidaguardada` SET idTablero= 2, turnoJugador= 1  WHERE `ìdPGuardada`= "'.$idPartida.'"';
+
+    $stmt = $con->prepare($sql);
+
+    $stmt->execute();
+}

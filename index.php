@@ -35,6 +35,9 @@
             case 'EiGame':
                 include __DIR__.'/recursoElementosInGame.php';
                 break;
+            case 'fPartida':
+                include __DIR__. '/recursoFPartida.php';
+                break;
 			default:
 				include __DIR__.'/recursoMenuJuego.php';
 				break;
