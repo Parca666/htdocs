@@ -32,23 +32,28 @@ function finish1Tablero()
     else {return FALSE;}
 }
 
+function finishGame()
+{
+    return (count($_SESSION["jugadores"], COUNT_NORMAL) == 1);
+}
+
 include_once './Modelos/connectaBD.php';
 $con = connectaBD();
 
 include_once './Modelos/juego.php';
 
-if(finish1Tablero())
+if(isset($_SESSION["fVuelta"]))
 {
-    $_SESSION["pGuardada"]['idTablero'] = 2;
-    $_SESSION["pGuardada"]['turnoJugador'] = 1;
+    if(finish1Tablero())
+    {
+        $_SESSION["pGuardada"]['idTablero'] = 2;
+        $_SESSION["pGuardada"]['turnoJugador'] = 1;
 
-    actTablero($con, $_SESSION["pGuardada"]['idPGuardada']);
-}
-else
-{
-    $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
+        actTablero($con, $_SESSION["pGuardada"]['idPGuardada']);
 
-    if($_SESSION["fVuelta"][$_SESSION["pGuardada"]['turnoJugador'] - 1])
+        $_SESSION["fVuelta"] = NULL;
+    }
+    else
     {
         $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
 
@@ -59,13 +64,47 @@ else
             if($_SESSION["fVuelta"][$_SESSION["pGuardada"]['turnoJugador'] - 1])
             {
                 $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
+
+                if($_SESSION["fVuelta"][$_SESSION["pGuardada"]['turnoJugador'] - 1])
+                {
+                    $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
+                }
             }
         }
     }
+
+    actTurnoJugador($con, $_SESSION["pGuardada"]['idPGuardada'],$_SESSION["pGuardada"]['turnoJugador']) ;
+    include_once  './Vistas/juego.php';
 }
-//print_r($_SESSION["pGuardada"]['turnoJugador']);
+else
+{
+    if(!finishGame())
+    {
+        $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
 
-actTurnoJugador($con, $_SESSION["pGuardada"]['idPGuardada'],$_SESSION["pGuardada"]['turnoJugador']) ;
+        if(!isset($_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1]))
+        {
+            $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
 
-include_once  './Vistas/juego.php';
+            if(!isset($_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1]))
+            {
+                $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
+
+                if(!isset($_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1]))
+                {
+                    $_SESSION["pGuardada"]['turnoJugador'] = ($_SESSION["pGuardada"]['turnoJugador'] + 1 > countJugadores())? 1:$_SESSION["pGuardada"]['turnoJugador'] += 1;
+                }
+            }
+        }
+        actTurnoJugador($con, $_SESSION["pGuardada"]['idPGuardada'],$_SESSION["pGuardada"]['turnoJugador']) ;
+        include_once  './Vistas/juego.php';
+    }
+    else
+    {
+        echo "ganador";
+    }
+}
+
+
+
 
