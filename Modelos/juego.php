@@ -171,18 +171,40 @@ function getItembyID($con, $idItem)
 
 function actTurnoJugador($con, $idPartida, $turnoJugador)
 {
-    $sql = 'UPDATE `partidaguardada` SET turnoJugador="'.$turnoJugador.'"  WHERE `ìdPGuardada`= "'.$idPartida.'"';
+    try
+    {
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $con->prepare($sql);
+        $sql = 'UPDATE `partidaguardada` SET turnoJugador= "'.$turnoJugador.'"  WHERE `idPGuardada`= "'. $idPartida .'"';
 
-    $stmt->execute();
+        $stmt = $con->prepare($sql);
+
+        $stmt->execute();
+
+        //echo $stmt->rowCount() . " records UPDATED successfully";
+
+    }catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
 }
 
 function actTablero($con, $idPartida)
 {
-    $sql = 'UPDATE `partidaguardada` SET idTablero= 2, turnoJugador= 1  WHERE `ìdPGuardada`= "'.$idPartida.'"';
 
-    $stmt = $con->prepare($sql);
+    try
+    {
+        $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = 'UPDATE `partidaguardada` SET idTablero= 2, turnoJugador= 1  WHERE `idPGuardada`= "'. $idPartida .'"';
 
-    $stmt->execute();
+        $stmt = $con->prepare($sql);
+
+        $stmt->execute();
+
+        //echo $stmt->rowCount() . " records UPDATED successfully";
+
+    }catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
 }

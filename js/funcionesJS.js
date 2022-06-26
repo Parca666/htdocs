@@ -83,6 +83,16 @@ function finalizarPartida ()
 {
     $('.juego').load('index.php?dest=fPartida');
 
+    setTimeout(function (){
+        //alert("casilla");
+        document.getElementById("cartaFrame").style.display = 'none';
+        document.getElementById("cPopUp").style.display = 'none';
+        document.getElementById("btTirarDados").style.display = 'block';
+        document.getElementById("divDados").style.display = 'none';
+        document.getElementById("bFinalizarTurno").style.display = 'none';
+
+    }, 10);
+
 }
 
 /*$(document).ready(function (){

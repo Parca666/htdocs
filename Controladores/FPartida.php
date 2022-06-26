@@ -63,6 +63,7 @@ else
         }
     }
 }
+//print_r($_SESSION["pGuardada"]['turnoJugador']);
 
 actTurnoJugador($con, $_SESSION["pGuardada"]['idPGuardada'],$_SESSION["pGuardada"]['turnoJugador']) ;
 

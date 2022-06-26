@@ -1,5 +1,5 @@
-<!-- <?php print_r($_SESSION["jugadores"])?></p>
-<p><?php print_r($_SESSION["pGuardada"])?></p>  -->
+<!--
+<p><?php print_r($_SESSION)?></p> -->
 
 <iframe id="tableroFrame" class="tablero" title="Tablero" width="900" height="900" src="index.php?dest=EiGame&tipo=tablero"></iframe>
 

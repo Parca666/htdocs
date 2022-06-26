@@ -56,7 +56,7 @@ if($_GET['tipo'] == "tablero")
             break;
 
         case 2:
-            $posJ = getPosFicha($_SESSION["jugadores"][2], $_SESSION["nDado"], 81, 81, 14);
+            $posJ = getPosFicha($_SESSION["jugadores"][1], $_SESSION["nDado"], 81, 81, 14);
             $_SESSION["jugadores"][1][0]['idCasilla'] = $posJ[2];
 
             tablero(getPosFicha($_SESSION["jugadores"][0], NULL, 77, 84),
@@ -71,7 +71,7 @@ if($_GET['tipo'] == "tablero")
             $_SESSION["jugadores"][2][0]['idCasilla'] = $posJ[2];
 
             tablero(getPosFicha($_SESSION["jugadores"][0], NULL, 77, 84),
-                getPosFicha($_SESSION["jugadores"][2], NULL, 81, 81, 14),
+                getPosFicha($_SESSION["jugadores"][1], NULL, 81, 81, 14),
                 isset($_SESSION["jugadores"][2])? $posJ:array(0,0),
                 isset($_SESSION["jugadores"][3])? getPosFicha($_SESSION["jugadores"][3], NULL, 85, 75, 15):array(0,0)
             );
@@ -81,7 +81,7 @@ if($_GET['tipo'] == "tablero")
             $_SESSION["jugadores"][3][0]['idCasilla'] = $posJ[2];
 
             tablero(getPosFicha($_SESSION["jugadores"][0], NULL, 77, 84),
-                getPosFicha($_SESSION["jugadores"][2], NULL, 81, 81, 14),
+                getPosFicha($_SESSION["jugadores"][1], NULL, 81, 81, 14),
                 isset($_SESSION["jugadores"][2])? getPosFicha($_SESSION["jugadores"][2], NULL, 85, 78, 15, 13):array(0,0),
                 isset($_SESSION["jugadores"][3])? $posJ:array(0,0)
             );

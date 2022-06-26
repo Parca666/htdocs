@@ -44,7 +44,7 @@ actUsuarioStats($con, $jugador['idJugador'], $jugador['idCasilla'] + $_SESSION["
 
 $_SESSION["nDado"] = null;
 
-//print_r($_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0]['Fama']);
+//print_r($_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0]);
 
 $_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0]['fama'] = $Fama;
 $_SESSION["jugadores"][$_SESSION["pGuardada"]['turnoJugador'] - 1][0]['repercusion'] = $Repercusion;
