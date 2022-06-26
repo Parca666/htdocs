@@ -6,6 +6,8 @@
 
     if(isset($_GET['id'])) {$_SESSION['id']=$_GET['id'];}
 
+    if(isset($_GET['nDado'])){$_SESSION['nDado']=$_GET['nDado'];}else{$_SESSION['nDado'] = 0;}
+
 
 
 	if(isset($_SESSION['usuario']))
@@ -20,6 +22,21 @@
 				break;
             case 'nJuego':
                 include __DIR__.'/recursoNJuego.php';
+                break;
+            case 'actStats':
+                include __DIR__. '/recursoActStats.php';
+                break;
+            case 'cJuego':
+                include __DIR__.'/recursoCargarPartida.php';
+                break;
+            case 'eJuego':
+                include __DIR__.'/recursoEliminarPartida.php';;
+                break;
+            case 'EiGame':
+                include __DIR__.'/recursoElementosInGame.php';
+                break;
+            case 'fPartida':
+                include __DIR__. '/recursoFPartida.php';
                 break;
 			default:
 				include __DIR__.'/recursoMenuJuego.php';

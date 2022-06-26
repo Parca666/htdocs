@@ -21,13 +21,16 @@ else
 
     require './Modelos/NuevoJuego.php';
 
+    $_SESSION["fVuelta"] = array(FALSE, TRUE, TRUE, TRUE);
+
     insertarJugador($con, $nombreBandas[0]);
     $check[0] = buscarJugador($con, 1, $nombreBandas[0], 1, 1, 0,0, 1000);
 
     if(isset($_POST["2"]))
     {
         insertarJugador($con, $nombreBandas[1]);
-       $check[1] = buscarJugador($con, 1, $nombreBandas[1], 1, 1, 0,0, 1000);
+        $check[1] = buscarJugador($con, 1, $nombreBandas[1], 1, 1, 0,0, 1000);
+        $_SESSION["fVuelta"][1] = FALSE;
     }
     else{ $check[1] = NULL;}
 
@@ -35,6 +38,7 @@ else
     {
         insertarJugador($con, $nombreBandas[2]);
         $check[2] = buscarJugador($con, 1, $nombreBandas[2], 1, 1, 0,0, 1000);
+        $_SESSION["fVuelta"][2] = FALSE;
     }
     else{ $check[2] = NULL;}
 
@@ -42,6 +46,7 @@ else
     {
         insertarJugador($con, $nombreBandas[3]);
         $check[3] = buscarJugador($con, 1, $nombreBandas[3], 1, 1, 0,0, 1000);
+        $_SESSION["fVuelta"][3] = FALSE;
     }
     else{ $check[3] = NULL;}
 

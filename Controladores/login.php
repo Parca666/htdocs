@@ -21,10 +21,10 @@
             $hash = $contrasenaBD[0][0];
 
             //print_r($contrasenaBD);
-            print_r( password_verify ($contrasena , $hash));
+            //print_r( password_verify ($contrasena , $hash));
             $contrasenaHash =  password_verify ($contrasena , $hash);
 
-            print_r($contrasenaHash);
+            //print_r($contrasenaHash);
         }
 
         if($contrasenaHash){
