@@ -105,37 +105,47 @@ elseif ($_GET['tipo'] == "carta")
 
     include_once './Vistas/carta.php';
 
+    if($_SESSION["pGuardada"]['idTablero'] == 1) {
+        switch (($posJugador - 1) % 5) {
+            case 0:
+                $casilla = getCasillaEsquina($con);
+                $_SESSION["casilla"] = $casilla[($posJugador - 1) / 5];
+                if(isset($_SESSION["casilla"]['idItem']))
+                {
+                    $_SESSION["item"] = getItembyID($con, $_SESSION["casilla"]['idItem']);
+                    $_SESSION["item"] = $_SESSION["item"][0];
+                }
+                templateCasilla($_SESSION["casilla"]);
+                break;
+            case 1:
+                $casilla = getCasillasFortuna($con);
+                $_SESSION["casilla"] = $casilla[rand(1, count($casilla)) - 1];
+                templateCasilla($_SESSION["casilla"]);
 
-    switch (($posJugador- 1)%5)
+                //print_r($casilla);
+                break;
+            case 2:
+                $casilla = getCasillaSuerte($con);
+                $_SESSION["casilla"] = $casilla[rand(1, count($casilla)) - 1];
+                templateCasilla($_SESSION["casilla"]);
+                break;
+            case 3:
+                $casilla = getCasillaEleccion($con);
+                $_SESSION["casilla"] = $casilla[rand(1, count($casilla)) - 1];
+                eleccionCasilla($_SESSION["casilla"]);
+                break;
+            case 4:
+                $casilla = getCasillaFama($con);
+                $_SESSION["casilla"] = $casilla[rand(1, count($casilla)) - 1];
+                templateCasilla($_SESSION["casilla"]);
+                break;
+
+
+        }
+    }
+    else
     {
-        case 0:
-            $casilla =  getCasillaEsquina($con);
-            //print_r($casilla);
-            break;
-        case 1:
-            $casilla = getCasillasFortuna($con);
-            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
-            templateCasilla($_SESSION["casilla"]);
-
-            //print_r($casilla);
-            break;
-        case 2:
-            $casilla = getCasillaSuerte($con);
-            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
-            templateCasilla($_SESSION["casilla"]);
-            break;
-        case 3:
-            $casilla = getCasillaEleccion($con);
-            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
-            eleccionCasilla($_SESSION["casilla"]);
-            break;
-        case 4:
-            $casilla = getCasillaFama($con);
-            $_SESSION["casilla"] = $casilla[rand(1, count($casilla) - 1)];
-            templateCasilla($_SESSION["casilla"]);
-            break;
-
-
+        echo "hola";
     }
 
 

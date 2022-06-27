@@ -44,6 +44,16 @@
     /*left: 89%;
     top:75%;*/
 }
+/* ---- Estilo del escenario ----*/
+
+.escenario img {
+    border-radius: 10%;
+    padding-left: 5%;
+}
+
+.items {
+    position: absolute;
+}
 
 /* ---- Estilo de la carta ----*/
 

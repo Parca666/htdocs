@@ -17,7 +17,7 @@ $Dinero = 0;
 
 //print_r($_SESSION['casilla']);
 
-if(!isset($_SESSION["casilla"]['idItem1']))
+if(!isset($_SESSION["item"]))
 {
     $Fama = isset($_SESSION['casilla']['Fama'])? $_SESSION['casilla']['Fama'] * $jugador['fama']:$jugador['fama'];
     $Repercusion = isset($_SESSION['casilla']['Repercusion'])? $_SESSION['casilla']['Repercusion'] * $jugador['repercusion']:$jugador['repercusion'];
@@ -29,13 +29,19 @@ if(!isset($_SESSION["casilla"]['idItem1']))
 }
 else
 {
-    $item = getItembyID($con, $_SESSION["casilla"]['idItem1']);
+    //$item = getItembyID($con, $_SESSION["casilla"]['idItem1']);
 
-    $Fama = isset($item[0]['Fama'])? $item[0]['Fama'] * $jugador['fama']:$jugador['fama'];
-    $Repercusion = isset($item[0]['Repercusion'])? $item[0]['Repercusion'] * $jugador['repercusion']:$jugador['repercusion'];
-    $Ingresos = isset($item[0]['Ingresos'])? $item[0]['Ingresos'] + $jugador['ingresos']:$jugador['ingresos'];
-    $Costes = isset($item[0]['Coste'])? $item[0]['Coste'] + $jugador['costes']:$jugador['costes'];
-    $Dinero = isset($item[0]['Dinero'])? $item[0]['Dinero'] + $jugador['dinero']:$jugador['dinero'];
+    $Fama =$_SESSION["item"]['fama'] * $jugador['fama'];
+    $Repercusion = $jugador['repercusion'];
+    $Ingresos = $_SESSION["item"]['ingresos'] + $jugador['ingresos'];
+    $Costes =$_SESSION["item"]['coste'] + $jugador['costes'];
+    $Dinero = $jugador['dinero'];
+
+    addRelacionItemJugador($con, $_SESSION["item"]['idItem'], $jugador['idJugador']);
+
+    $_SESSION["item"] = NULL;
+
+
 
 }
 

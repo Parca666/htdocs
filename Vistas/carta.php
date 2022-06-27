@@ -5,6 +5,14 @@
     <div class="cartaPopUp">
         <div class="titulo"> <?= $casilla['Titulo'] ?> </div>
         <div class ="descripcion"> <?= $casilla['Descripcion'] ?> </div>
+
+
+        <?php if(isset($casilla['idItem']))
+        { ?>
+            <div class="stat"> <img src="<?= $_SESSION["item"]['img'] ?>" </div>
+        <?php } ?>
+
+
         <?php if(isset($casilla['Fama']))
         { ?>
             <div class="stat"> Fama: <?= $casilla['Fama'] ?> </div>
@@ -12,7 +20,7 @@
 
         <?php if(isset($casilla['Dinero']))
         { ?>
-            <div class="stat"> Dinero: <?= $casilla['Coste'] ?> </div>
+            <div class="stat"> Dinero: <?= $casilla['Dinero'] ?> </div>
         <?php } ?>
 
 

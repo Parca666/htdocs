@@ -208,3 +208,16 @@ function actTablero($con, $idPartida)
     }
 
 }
+
+function addRelacionItemJugador($con, $idItem, $idJugador)
+{
+    $sql = "INSERT INTO `itemjugador` (`idItemJugador`,`idJugador`, `idItem`)
+            VALUES (NULL,:idjugador,:idItem) ";
+    $stmt = $con->prepare($sql);
+
+    $stmt->bindParam(":idJugador", $idJugador, PDO::PARAM_STR);
+    $stmt->bindParam(":idItem", $idItem, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+}
